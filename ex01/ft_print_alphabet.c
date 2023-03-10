@@ -4,7 +4,8 @@ void ft_print_alphabet(void);
 
 void ft_print_alphabet(void)
 {
-    char alphabet[] = "abcdefghijklmnopqrstuvxwyz";
-
-    write(1, alphabet, sizeof alphabet);
+    for (int i = 97; i <= 122; i++)
+    {
+        write(1, &i, 1);
+    }
 }
