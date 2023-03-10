@@ -9,27 +9,26 @@ void write_number(char *number, int len);
 
 void ft_print_comb(void)
 {
-    int first_number;
-    int second_number;
-    int third_number;
+    char first_number = '0';
+    char second_number = '1';
+    char third_number = '2';
 
-    first_number = 0;
-    while (first_number <= 9)
+    while (first_number <= '7')
     {
-        second_number = first_number + 1;
-        while (second_number <= 9)
+        while (second_number <= '8')
         {
-            third_number = second_number + 1;
-            while (third_number <= 9)
+            while (third_number <= '9')
             {
-                char number[] = {('0' + first_number), ('0' + second_number),
-                                 ('0' + third_number)};
+                char number[] = {first_number, second_number, third_number};
                 write_number(number, sizeof(number));
                 third_number++;
             }
             second_number++;
+            third_number = second_number + 1;
         }
         first_number++;
+        second_number = first_number + 1;
+        third_number = second_number + 1;
     }
 }
 
