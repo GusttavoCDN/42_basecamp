@@ -1,7 +1,14 @@
-#include <unistd.h>
-
-void ft_putstr(char *str)
+int ft_str_is_uppercase(char *str)
 {
-	while (*str != '\0')
-		write(STDOUT_FILENO, str++, 1);
+	if (*str == '\0') return 1;
+
+	while (*str)
+	{
+		if (*str >= 'A' && *str <= 'Z')
+			str++;
+		else
+			return 0;
+	}
+	
+	return 1;
 }

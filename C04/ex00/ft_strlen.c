@@ -1,10 +1,12 @@
-int ft_strcmp(char *s1, char *s2)
+int ft_strlen(char *str)
 {
-	while ((*s1 == *s2) && (*s1 != '\0' && *s2 != '\0'))
+	int str_len = 0;
+
+	while (*str != '\0')
 	{
-		s1++;
-		s2++;
+		str++;
+		str_len++;
 	}
 
-	return ((unsigned int) *s1 - (unsigned int) *s2);
+	return str_len;
 }

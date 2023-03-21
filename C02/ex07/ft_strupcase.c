@@ -1,14 +1,12 @@
-void ft_rev_int_tab(int *tab, int size)
+char *ft_strupcase(char *str)
 {
-	int temp;
 	int i = 0;
-
-	while (i < size)
+	while (str[i])
 	{
-		temp = tab[i];
-		tab[i] = tab[size - 1];
-		tab[size - 1] = temp;
-		size--;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
 		i++;
 	}
+
+	return str;
 }

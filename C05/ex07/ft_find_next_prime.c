@@ -1,3 +1,12 @@
+int ft_is_prime(int nb);
+
+int ft_find_next_prime(int nb)
+{
+	if (ft_is_prime(nb))
+		return (nb);
+	return (ft_find_next_prime(nb + 1));
+}
+
 int ft_is_prime(int nb)
 {
 	int index;
@@ -12,6 +21,7 @@ int ft_is_prime(int nb)
 			return (0);
 		index++;
 	}
-	
+
 	return (1);
 }
+

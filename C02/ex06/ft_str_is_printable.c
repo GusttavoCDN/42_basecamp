@@ -1,12 +1,14 @@
-int ft_strlen(char *str)
+int ft_str_is_printable(char *str)
 {
-	int str_len = 0;
-
-	while (*str != '\0')
+	if (*str == '\0') return 1;
+	
+	while (*str)
 	{
-		str++;
-		str_len++;
+		if (*str >= 32 && *str <= 126)
+			str++;
+		else
+			return 0;
 	}
 
-	return str_len;
+	return 1;
 }

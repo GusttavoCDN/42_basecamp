@@ -1,29 +1,38 @@
-int ft_strlen(char *str);
+#include <unistd.h>
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+static void ft_putchar(char c);
+
+void ft_put_non_printable_char(char c);
+
+void ft_putstr_non_printable(char *str)
 {
-	int i = 0;
-	int src_len = ft_strlen(src);
 
-	while (i < (size - 1) && src[i])
+	while (*str)
 	{
-		dest[i] = src[i];
-		i++;
+		if ((*str >= 32 && *str < 127))
+			ft_putchar(*str);
+		else
+			ft_put_non_printable_char(*str);
+		str++;
 	}
-
-	dest[i] = '\0';
-	return src_len;
 }
 
-int ft_strlen(char *str)
+void ft_put_non_printable_char(char c)
 {
-	int str_len = 0;
+	char hex_base[17] = "0123456789abcdef";
+	char hex_char[4];
+	int i = 0;
 
-	while (*str != '\0')
-	{
-		str++;
-		str_len++;
-	}
+	hex_char[0] = '\\';
+	hex_char[1] = hex_base[c / 16];
+	hex_char[2] = hex_base[c % 16];
+	hex_char[3] = '\0';
 
-	return str_len;
+	while (hex_char[i])
+		ft_putchar(hex_char[i++]);
+}
+
+static void ft_putchar(char c)
+{
+	write(1, &c, 1);
 }

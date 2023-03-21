@@ -1,12 +1,15 @@
-// FN = (FN - 1) + (FN - 2)
-int ft_fibonnaci(int index)
+int ft_sqrt(int nb)
 {
-	if (index < 0)
-		return (-1);
-	if (index == 0)
-		return (0);
-	if (index == 1)
-		return (1);
+	int index;
 
-	return (ft_fibonnaci(index - 1) + ft_fibonnaci(index - 2));
+	if (nb <= 0)
+		return (0);
+
+	index = 0;
+	while (index * index < nb && index <= 46341)
+		index++;
+	if (index * index == nb)
+		return (index);
+
+	return (0);
 }

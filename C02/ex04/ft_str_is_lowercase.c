@@ -1,7 +1,14 @@
-void ft_ultimate_div_mod(int *a, int *b)
+int ft_str_is_lowercase(char *str)
 {
-	int temp;
-	temp = *a;
-	*a = *a / *b;
-	*b = temp % *b;
+	if (*str == '\0') return 1;
+
+	while (*str)
+	{
+		if (*str >= 'a' && *str <= 'z')
+			str++;
+		else
+			return 0;
+	}
+	
+	return 1;
 }

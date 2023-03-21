@@ -1,7 +1,14 @@
-void ft_swap(int *a, int *b)
+int ft_str_is_alpha(char *str)
 {
-	int temp;
-	temp = *a;
-	*a = *b;
-	*b = temp;
+	if (*str == '\0') return 1;
+
+	while ((*str))
+	{
+		if ((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z'))
+			str++;
+		else
+			return 0;
+	}
+
+	return 1;
 }

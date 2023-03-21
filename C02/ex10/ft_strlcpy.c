@@ -1,43 +1,29 @@
-char ft_char_to_upper(char c);
+int ft_strlen(char *str);
 
-char ft_char_to_lower(char c);
-
-char *ft_strcapitalize(char *str)
+unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	int i = 0;
-	int prev_letter;
+	int src_len = ft_strlen(src);
 
-	if (*str == '\0') return ((void *) 0);
-
-	while (str[i])
+	while (i < (size - 1) && src[i])
 	{
-
-		prev_letter = i - 1;
-		if (!(str[prev_letter] >= 'A' && str[prev_letter] <= 'Z') &&
-		    !(str[prev_letter] >= '0' && str[prev_letter] <= '9') &&
-		    !(str[prev_letter] >= 'a' && str[prev_letter] <= 'z'))
-			str[i] = ft_char_to_upper(str[i]);
-		else
-			str[i] = ft_char_to_lower(str[i]);
-
+		dest[i] = src[i];
 		i++;
 	}
 
-	return str;
+	dest[i] = '\0';
+	return src_len;
 }
 
-char ft_char_to_lower(char c)
+int ft_strlen(char *str)
 {
-	if (c >= 'A' && c <= 'Z')
-		return c + 32;
+	int str_len = 0;
 
-	return c;
-}
+	while (*str != '\0')
+	{
+		str++;
+		str_len++;
+	}
 
-char ft_char_to_upper(char c)
-{
-	if (c >= 'a' && c <= 'z')
-		return c - 32;
-
-	return c;
+	return str_len;
 }

@@ -1,31 +1,70 @@
-#include <unistd.h>
+int ft_isspace(int c);
 
-void ft_putnbr(int number);
+int ft_count_decimals(char *str);
 
-void ft_putchar(char c);
+int ft_power(int base, int exponent);
 
-
-void ft_putnbr(int number)
+int ft_atoi(char *str)
 {
-	if (number == -2147483648)
+	int signal;
+	int number;
+	int decimals;
+
+	while (ft_isspace(*str))
+		str++;
+
+	signal = 1;
+	while (*str == '+' || *str == '-')
 	{
-		write(STDOUT_FILENO, "-2147483648", 11);
-		return;
+		if (*str == '-')
+			signal *= -1;
+		str++;
 	}
 
-	if (number < 0)
+	decimals = ft_count_decimals(str);
+	number = 0;
+
+	while (*str && (*str >= '0' && *str <= '9'))
 	{
-		ft_putchar('-');
-		number = -number;
+		number += (*str - '0') * ft_power(10, --decimals);
+		str++;
 	}
 
-	if (number > 9)
-		ft_putnbr(number / 10);
-
-	ft_putchar('0' + (number % 10));
+	return number * signal;
 }
 
-void ft_putchar(char c)
+int ft_isspace(int c)
 {
-	write(STDOUT_FILENO, &c, 1);
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f' ||
+	        c == '\v');
+}
+
+int ft_power(int base, int exponent)
+{
+	int i = 1;
+	int result = base;
+
+	if (exponent == 0)
+		return 1;
+
+	while (i < exponent)
+	{
+		result *= base;
+		i++;
+	}
+
+	return result;
+}
+
+int ft_count_decimals(char *str)
+{
+	int i = 0;
+
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		i++;
+		str++;
+	}
+
+	return i;
 }

@@ -1,15 +1,17 @@
-int ft_sqrt(int nb)
+int ft_is_prime(int nb)
 {
 	int index;
 
-	if (nb <= 0)
+	if (nb == 0 || nb == 1)
 		return (0);
 
-	index = 0;
-	while (index * index < nb && index <= 46341)
+	index = 2;
+	while (index <= nb / 2)
+	{
+		if (nb % index == 0)
+			return (0);
 		index++;
-	if (index * index == nb)
-		return (index);
-
-	return (0);
+	}
+	
+	return (1);
 }

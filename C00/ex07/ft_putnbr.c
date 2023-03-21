@@ -4,7 +4,6 @@ void ft_putnbr(int number);
 
 void ft_putchar(char c);
 
-
 void ft_putnbr(int number)
 {
 	if (number == -2147483648)

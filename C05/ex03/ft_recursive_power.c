@@ -1,12 +1,10 @@
-int ft_iterative_power(int nb, int power)
+int ft_recursive_power(int nb, int power)
 {
-	int result = 1;
+	if (power < 0)
+		return 0;
 
-	while (power > 0)
-	{
-		result *= nb;
-		power--;
-	}
-
-	return result;
+	if (power == 0)
+		return 1;
+	else
+		return nb * ft_recursive_power(nb, power - 1);
 }
