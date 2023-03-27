@@ -1,8 +1,30 @@
 #include <unistd.h>
 
-void ft_putnbr(int number);
+void ft_putstr(char *str);
 
 void ft_putchar(char c);
+
+void ft_putnbr(int number);
+
+void ft_show_tab(struct s_stock_str *par)
+{
+	while (par->size)
+	{
+		ft_putnbr(par->size);
+		ft_putchar('\n');
+		ft_putstr(par->str);
+		ft_putchar('\n');
+		ft_putstr(par->copy);
+		ft_putchar('\n');
+		par++;
+	}
+}
+
+void ft_putstr(char *str)
+{
+	while (*str != '\0')
+		write(STDOUT_FILENO, str++, 1);
+}
 
 void ft_putnbr(int number)
 {
