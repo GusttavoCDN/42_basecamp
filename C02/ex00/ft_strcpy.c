@@ -1,12 +1,25 @@
-char *ft_strcpy(char *dest, char *src)
-{
-	int i = 0;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 20:56:50 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/27 13:16:15 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = 0;
 	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\0';
-	return dest;
+	return (dest);
 }

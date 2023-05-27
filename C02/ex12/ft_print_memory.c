@@ -1,69 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/27 12:23:17 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/27 13:16:00 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-const char hex_base[17] = "0123456789abcdef";
+#define HEX_BASE "0123456789abcdef"
 
-void ft_print_mem_addr(void *addr);
+void	ft_print_mem_addr(void	*addr);
+void	ft_form_str_hexa_line(char *src, char *hexa_line);
+void	ft_putchar(char c);
+void	ft_print_str_in_hexa(char *str);
 
-void ft_form_str_hexa_line(char *src, char *hexa_line);
-
-void ft_putchar(char c);
-
-void ft_print_str_in_hexa(char *str);
-
-void *ft_print_memory(void *addr, unsigned int size)
+void	*ft_print_memory(void	*addr, unsigned int size)
 {
-	int i = 0;
-	int max_line_size = 16;
-	int line_qnts = size / max_line_size;
+	int	i;
+	int	max_line_size;
+	int	line_qnts;
 
-	if (size == 0) return addr;
-
+	i = 0;
+	max_line_size = 16;
+	line_qnts = size / max_line_size;
+	if (size == 0)
+		return (addr);
 	while (i < line_qnts)
 	{
-
 		ft_print_mem_addr(addr + (max_line_size * i));
 		ft_print_str_in_hexa(addr + (max_line_size * i));
 		ft_putchar('\n');
 		i++;
 	}
-
-	return addr;
+	return (addr);
 }
 
-void ft_print_mem_addr(void *addr)
+void	ft_print_mem_addr(void *addr)
 {
-	int i = 0;
-	char str_mem[17];
-	unsigned long adress = (unsigned long) addr;
+	int				i;
+	char			str_mem[17];
+	unsigned long	address;
 
-	while (adress > 0)
+	while (address > 0)
 	{
-		str_mem[i++] = hex_base[adress % 16];
-		adress /= 16;
+		str_mem[i++] = HEX_BASE[address % 16];
+		address /= 16;
 	}
-
 	str_mem[i] = '\0';
 	while (i-- > 0)
-		write(STDOUT_FILENO, &str_mem[i], 1);
-	write(STDOUT_FILENO, ": ", 2);
+		ft_putchar(str_mem[i]);
+	ft_putchar(':');
+	ft_putchar(' ');
 }
 
-void ft_print_str_in_hexa(char *str)
+void	ft_print_str_in_hexa(char *str)
 {
-	char str_hexa_line[33];
-	int i = 0;
-	int j = 0;
-	int max_line_size = 16;
+	char	str_hexa_line[33];
+	int		i;
+	int		j;
+	int		max_line_size;
 
+	i = 0;
+	j = 0;
+	max_line_size = 16;
 	ft_form_str_hexa_line(str, str_hexa_line);
-
 	while (str_hexa_line[i])
 	{
 		ft_putchar(str_hexa_line[i++]);
 		if (i % 4 == 0)
 			ft_putchar(' ');
 	}
-
 	while (*str && j < max_line_size)
 	{
 		if (*str < 32 || *str > 126)
@@ -75,32 +86,35 @@ void ft_print_str_in_hexa(char *str)
 	}
 }
 
-void ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void ft_form_str_hexa_line(char *src, char *hexa_line)
+void	ft_form_str_hexa_line(char *src, char *hexa_line)
 {
-	int i = 0;
-	int j = 0;
+	int				i;
+	int				j;
+	int				hex_char;
+	unsigned int	asc_value;
 
+	i = 0;
+	j = 0;
 	while (*src && j < 16)
 	{
-		unsigned int asc_value = (unsigned int) *src;
+		asc_value = (unsigned int) *src;
 		while (asc_value > 9)
 		{
-			hexa_line[i] = hex_base[(asc_value / 16)];
+			hexa_line[i] = HEX_BASE[asc_value / 16];
 			asc_value /= 16;
 			i++;
 		}
-		int hex_c = ((unsigned int) *src % 16);
-		hexa_line[i] = hex_base[hex_c];
+		hex_char = ((unsigned int) *src % 16);
+		hexa_line[i] = HEX_BASE[hex_char];
 		i++;
 		src++;
 		j++;
 	}
-
 	while (i < 32)
 		hexa_line[i++] = ' ';
 	hexa_line[i] = '\0';

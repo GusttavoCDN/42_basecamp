@@ -1,14 +1,25 @@
-int ft_str_is_uppercase(char *str)
-{
-	if (*str == '\0') return 1;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 21:24:50 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/27 13:16:09 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+int	ft_str_is_uppercase(char *str)
+{
+	if (*str == '\0')
+		return (1);
 	while (*str)
 	{
 		if (*str >= 'A' && *str <= 'Z')
 			str++;
 		else
-			return 0;
+			return (0);
 	}
-	
-	return 1;
+	return (1);
 }

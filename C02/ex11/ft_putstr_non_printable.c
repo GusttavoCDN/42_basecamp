@@ -1,15 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/27 13:05:04 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/27 13:15:57 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-static void ft_putchar(char c);
+#define HEX_BASE "0123456789abcdef"
 
-void ft_put_non_printable_char(char c);
+void	ft_putchar(char c);
+void	ft_put_non_printable_char(char c);
+void	put_str_non_printable(char *str);
 
-void ft_putstr_non_printable(char *str)
+void	put_str_non_printable(char *str)
 {
-
 	while (*str)
 	{
-		if ((*str >= 32 && *str < 127))
+		if ((*str >= 32 && *str <= 126))
 			ft_putchar(*str);
 		else
 			ft_put_non_printable_char(*str);
@@ -17,22 +30,21 @@ void ft_putstr_non_printable(char *str)
 	}
 }
 
-void ft_put_non_printable_char(char c)
+void	ft_put_non_printable_char(char c)
 {
-	char hex_base[17] = "0123456789abcdef";
-	char hex_char[4];
-	int i = 0;
+	char	hex_char[4];
+	int		i;
 
+	i = 0;
 	hex_char[0] = '\\';
-	hex_char[1] = hex_base[c / 16];
-	hex_char[2] = hex_base[c % 16];
+	hex_char[1] = HEX_BASE[c / 16];
+	hex_char[2] = HEX_BASE[c % 16];
 	hex_char[3] = '\0';
-
-	while (hex_char[i])
+	while (hex_char[i] != '\0')
 		ft_putchar(hex_char[i++]);
 }
 
-static void ft_putchar(char c)
+void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	write(STDOUT_FILENO, &c, 1);
 }

@@ -1,14 +1,27 @@
-int ft_str_is_alpha(char *str)
-{
-	if (*str == '\0') return 1;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 21:12:29 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/27 13:16:14 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-	while ((*str))
+int	ft_str_is_alpha(char *str);
+
+int	ft_str_is_alpha(char *str)
+{
+	if (*str == '\0')
+		return (1);
+	while (*str != '\0')
 	{
 		if ((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z'))
 			str++;
 		else
-			return 0;
+			return (0);
 	}
-
-	return 1;
+	return (1);
 }
