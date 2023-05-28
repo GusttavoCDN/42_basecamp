@@ -1,45 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 14:33:21 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/26 14:40:16 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_print_comb(void);
+void	ft_putchar(char c);
+void	ft_putcomma(void);
+void	ft_print_comb(void);
 
-void add_comma(void);
-
-void write_number(char *number, int len);
-
-
-void ft_print_comb(void)
+void	ft_print_comb(void)
 {
-    char first_number = '0';
-    char second_number = '1';
-    char third_number = '2';
+	int	first_n;
+	int	second_n;
+	int	third_n;
 
-    while (first_number <= '7')
-    {
-        while (second_number <= '8')
-        {
-            while (third_number <= '9')
-            {
-                char number[] = {first_number, second_number, third_number};
-                write_number(number, sizeof(number));
-                third_number++;
-            }
-            second_number++;
-            third_number = second_number + 1;
-        }
-        first_number++;
-        second_number = first_number + 1;
-        third_number = second_number + 1;
-    }
+	first_n = 0;
+	while (first_n <= 7)
+	{
+		second_n = first_n + 1;
+		while (second_n <= 8)
+		{
+			third_n = second_n + 1;
+			while (third_n <= 9)
+			{
+				ft_putchar(first_n + '0');
+				ft_putchar(second_n + '0');
+				ft_putchar(third_n + '0');
+				if (first_n == 7 && second_n == 8 && third_n == 9)
+					return ;
+				ft_putcomma();
+				third_n++;
+			}
+			second_n++;
+		}
+		first_n++;
+	}
 }
 
-void add_comma(void)
+void	ft_putchar(char c)
 {
-    write(1, ", ", 2);
+	write(STDOUT_FILENO, &c, 1);
 }
 
-void write_number(char *number, int len)
+void	ft_putcomma(void)
 {
-    write(1, number, len);
-    if (number[0] == '7' && number[1] == '8' && number[2] == '9') return;
-    add_comma();
+	write(STDOUT_FILENO, ", ", 2);
 }

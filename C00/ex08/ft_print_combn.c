@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 13:41:27 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/26 14:39:29 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/05/26 15:27:17 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/28 13:34:59 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// #include <unistd.h>
 
-void	ft_putchar(char c);
-void	ft_print_numbers(void);
+// void	ft_print_combn(int n);
 
-void	ft_print_numbers(void)
-{
-	int	i;
+// void	ft_print_combn(int n)
+// {
 
-	i = '1';
-	while (i <= '9')
-	{
-		ft_putchar(i);
-		i++;
-	}
-}
-
-void	ft_putchar(char c)
-{
-	write(STDOUT_FILENO, &c, 1);
-}
+// }

@@ -1,36 +1,62 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 14:37:36 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/26 15:19:48 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_print_comb2(void);
+void	ft_print_comb2(void);
+void	ft_putchar(char c);
+void	ft_putnbr(int n);
 
-void ft_put_number(int number);
-
-void ft_put_number(int number)
+void	ft_print_comb2(void)
 {
-    char decimal = '0' + (number / 10);
-    char unit = '0' + (number % 10);
+	int	first_number;
+	int	second_number;
 
-    write(STDOUT_FILENO, &decimal, 1);
-    write(STDOUT_FILENO, &unit, 1);
+	first_number = 0;
+	second_number = 1;
+	while (first_number <= 98)
+	{
+		while (second_number <= 99)
+		{
+			if (first_number < 9)
+				ft_putchar('0');
+			ft_putnbr(first_number);
+			ft_putchar(' ');
+			if (second_number < 9)
+				ft_putchar('0');
+			ft_putnbr(second_number);
+			if (first_number == 98 && second_number == 99)
+				return ;
+			ft_putchar(',');
+			ft_putchar(' ');
+			second_number++;
+		}
+		first_number++;
+		second_number = first_number + 1;
+	}
 }
 
-void ft_print_comb2(void)
+void	ft_putchar(char c)
 {
-    int number = 0;
-    int numberTwo = 1;
+	write(STDOUT_FILENO, &c, 1);
+}
 
-    while (number <= 98)
-    {
-        while (numberTwo <= 99)
-        {
-
-            ft_put_number(number);
-            write(STDOUT_FILENO, &" ", 1);
-            ft_put_number(numberTwo);
-            if (number == 98 && numberTwo == 99) return;
-            write(STDOUT_FILENO, &", ", 2);
-            numberTwo++;
-        }
-        number++;
-        numberTwo = number + 1;
-    }
+void	ft_putnbr(int n)
+{
+	if (n < 10)
+	{
+		ft_putchar(n + '0');
+		return ;
+	}
+	ft_putnbr(n / 10);
+	ft_putchar((n % 10) + '0');
 }
