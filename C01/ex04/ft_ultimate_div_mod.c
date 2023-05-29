@@ -1,6 +1,19 @@
-void ft_ultimate_div_mod(int *a, int *b)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/26 20:38:25 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/28 13:40:18 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	int temp;
+	int	temp;
+
 	temp = *a;
 	*a = *a / *b;
 	*b = temp % *b;

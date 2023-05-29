@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_fibonnaci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 13:46:46 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/28 13:56:48 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/05/29 04:58:10 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/29 05:03:12 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_ft_fibonnaci(int index)
 {
-	int	i;
-
-	i = 0;
-	while ((s1[i] == s2[i]) && (s1[i] != '\0' && s2[i] != '\0'))
-		i++;
-	return ((unsigned int)s1[i] - (unsigned int)s2[i]);
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	if (index == 1)
+		return (1);
+	return (ft_ft_fibonnaci(index - 1) + ft_ft_fibonnaci(index - 2));
 }

@@ -1,10 +1,21 @@
-int ft_is_prime(int nb)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 05:05:37 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/29 05:06:36 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_is_prime(int nb)
 {
-	int index;
+	int	index;
 
 	if (nb == 0 || nb == 1)
 		return (0);
-
 	index = 2;
 	while (index <= nb / 2)
 	{
@@ -12,6 +23,5 @@ int ft_is_prime(int nb)
 			return (0);
 		index++;
 	}
-	
 	return (1);
 }

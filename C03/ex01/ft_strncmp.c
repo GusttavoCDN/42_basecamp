@@ -1,13 +1,26 @@
-int ft_strncmp(char *s1, char *s2, unsigned int n)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/28 13:57:11 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/28 14:07:36 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	while ((*s1 == *s2) && (*s1 != '\0' && *s2 != '\0') && n > 0)
+	int	i;
+
+	if (n == 0)
+		return (0);
+	i = 0;
+	while ((s1[i] == s2[i]) && (s1[i] != '\0' && s2[i] != '\0') && n > 0)
 	{
-		s1++;
-		s2++;
+		i++;
 		n--;
 	}
-
-	if (n == 0) return (0);
-
-	return ((unsigned int) *s1 - (unsigned int) *s2);
+	return ((unsigned int)s1[i] - (unsigned int)s2[i]);
 }

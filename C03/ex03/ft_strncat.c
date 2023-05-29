@@ -1,28 +1,36 @@
-int ft_strlen(char *str);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/28 14:21:58 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/28 14:26:29 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strncat(char *dest, char *src, unsigned int nb)
+int		ft_strlen(char *str);
+
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int i;
+	int	dest_len;
+	int	src_len;
 
-	i = ft_strlen(dest);
-	while ((*src != '\0') && (nb-- > 0))
-		dest[i++] = *src++;
-
-
-	dest[i] = '\0';
-
-	return dest;
+	dest_len = ft_strlen(dest);
+	src_len = 0;
+	while (src[src_len] != '\0' && nb-- > 0)
+		dest[dest_len++] = src[src_len++];
+	dest[dest_len] = '\0';
+	return (dest);
 }
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int str_len = 0;
+	int	str_len;
 
-	while (*str != '\0')
-	{
-		str++;
+	str_len = 0;
+	while (str[str_len] != '\0')
 		str_len++;
-	}
-
-	return str_len;
+	return (str_len);
 }

@@ -1,29 +1,36 @@
-int ft_strlen(char *str);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/28 14:07:59 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/28 14:33:03 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strcat(char *dest, char *src)
+int		ft_strlen(char *str);
+
+char	*ft_strcat(char *dest, char *src)
 {
-	int i;
+	int	dest_len;
+	int	src_len;
 
-	i = ft_strlen(dest);
-
-	while (*src != '\0')
-		dest[i++] = *src++;
-
-	dest[i] = '\0';
-
-	return dest;
+	src_len = 0;
+	dest_len = ft_strlen(dest);
+	while (src[src_len] != '\0')
+		dest[dest_len++] = src[src_len++];
+	dest[dest_len] = '\0';
+	return (dest);
 }
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int str_len = 0;
+	int	str_len;
 
-	while (*str != '\0')
-	{
-		str++;
+	str_len = 0;
+	while (str[str_len] != '\0')
 		str_len++;
-	}
-
-	return str_len;
+	return (str_len);
 }
-

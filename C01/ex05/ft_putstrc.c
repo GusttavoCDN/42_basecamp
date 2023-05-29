@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putstrc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 13:46:46 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/28 13:56:48 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/05/26 20:39:09 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/28 13:40:21 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
+#include <unistd.h>
 
-	i = 0;
-	while ((s1[i] == s2[i]) && (s1[i] != '\0' && s2[i] != '\0'))
-		i++;
-	return ((unsigned int)s1[i] - (unsigned int)s2[i]);
+void	ft_putstr(char *str)
+{
+	while (*str != '\0')
+		write(STDOUT_FILENO, str++, 1);
 }

@@ -1,16 +1,28 @@
-int ft_iterative_factorial(int nb)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 04:41:01 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/05/29 04:46:01 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_iterative_factorial(int nb)
 {
-	int result = 1;
-	int i = 1;
+	int	result;
+	int	i;
 
+	i = 1;
+	result = 1;
 	if (nb < 0)
-		return 0;
-
+		return (0);
 	while (i <= nb)
 	{
 		result *= i;
 		i++;
 	}
-
-	return result;
+	return (result);
 }
