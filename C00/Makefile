@@ -1,19 +1,21 @@
-MAIN = main.c
+MAIN = test_program.c
 EXEC = $(basename $(MAIN))
 RM = rm -rf
 NORMINETTE = norminette -R CheckForbiddenSourceHeader
-CC = gcc -Wall -Wextra -Werror
 
 all: compile run
 
 compile:
-	${CC} ${MAIN} $(FILE) -o ./${EXEC}
+	cc ${MAIN} $(FILE) -o ./${EXEC}
 
 run:
 	@echo "\nFile output is: \n"
 	@./${EXEC}
 
 clean:
-	${RM}MAIN = main.c
+	${RM}
+
+norm:
+	${NORMINETTE}
 
 .PHONY: all compile run norm

@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:27:17 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/30 12:44:54 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/01 03:40:56 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,3 +66,25 @@ void	ft_update_digits(char *numbers, int size, char *max_number)
 	while (++digit_to_update < size)
 		numbers[digit_to_update] = numbers[digit_to_update - 1] + 1;
 }
+
+// Imperative Version
+// void	ft_print_numbers(char *numbers, int size, char *max_number)
+// {
+// 	int final_position;
+
+// 	final_position = size - 1;
+// 	while (numbers[0] != max_number[0])
+// 	{
+// 		write(STDOUT_FILENO, numbers, size);
+// 		write(STDERR_FILENO, ", ", 2);
+// 		if (numbers[final_position] + 1 <= '9')
+// 			numbers[final_position]++;
+// 		if (numbers[final_position] == max_number[final_position] && size > 1)
+// 		{
+// 			write(STDERR_FILENO, numbers, size);
+// 			write(STDERR_FILENO, ", ", 2);
+// 			ft_update_digits(numbers, size, max_number);
+// 		}
+// 	}
+// 	write(STDOUT_FILENO, numbers, size);
+// }

@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   test_program.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 13:27:32 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/01 03:41:35 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/05/31 22:58:51 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/06/01 03:41:06 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// #include <stdio.h>
+// #include <unistd.h>
 
-void	ft_putchar(char c);
-void	ft_print_alphabet(void);
+// void	ft_print_comb2(void);
+// void	ft_print_combn(int n);
 
-void	ft_print_alphabet(void)
-{
-	int	i;
-
-	i = 'a';
-	while (i <= 'z')
-		ft_putchar(i++);
-}
-
-void	ft_putchar(char c)
-{
-	write(STDOUT_FILENO, &c, 1);
-}
+// int	main(void)
+// {
+// 	// ft_print_comb2();
+// 	ft_print_combn(3);
+// 	return (0);
+// }
