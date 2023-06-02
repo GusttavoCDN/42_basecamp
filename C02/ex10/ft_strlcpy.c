@@ -6,13 +6,13 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 12:21:05 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/27 13:16:04 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/02 12:32:12 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str);
+int				ft_strlen(char *str);
 
-unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	int	i;
 	int	src_len;
