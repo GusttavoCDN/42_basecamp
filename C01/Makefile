@@ -1,4 +1,4 @@
-MAIN = main.c
+MAIN = test_program.c
 EXEC = $(basename $(MAIN))
 RM = rm -rf
 NORMINETTE = norminette -R CheckForbiddenSourceHeader

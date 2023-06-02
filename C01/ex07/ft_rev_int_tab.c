@@ -6,22 +6,24 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 20:42:46 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/29 06:25:58 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/01 23:48:06 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_rev_int_tab(int *tab, int size)
 {
 	int	temp;
-	int	i;
+	int	left_side;
+	int	right_side;
 
-	i = 0;
-	while (i < size)
+	left_side = 0;
+	right_side = size - 1;
+	while (left_side < right_side)
 	{
-		temp = tab[i];
-		tab[i] = tab[size - 1];
-		tab[size - 1] = temp;
-		size--;
-		i++;
+		temp = tab[left_side];
+		tab[left_side] = tab[right_side];
+		tab[right_side] = temp;
+		right_side--;
+		left_side++;
 	}
 }
