@@ -59,5 +59,8 @@ CMakeLists.txt
 .idea/
 main.c
 main
+main
+.vscode
+test_program
 
 # End of https://www.toptal.com/developers/gitignore/api/c
