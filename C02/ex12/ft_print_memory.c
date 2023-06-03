@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 12:23:17 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/02 12:31:46 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/02 23:56:06 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 
 void	ft_putchar(char c);
 void	ft_print_mem_addr(void *addr);
-void	ft_print_str_in_hexa(char *str);
+void	ft_print_str(char *str);
 void	ft_form_str_hexa_line(char *src, char *hexa_line);
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	void	*pointer_to_addr;
 
-	if (size == 0)
+	if (size <= 1)
 		return (addr);
 	pointer_to_addr = addr;
 	while (pointer_to_addr < addr + size)
 	{
 		ft_print_mem_addr(pointer_to_addr);
 		write(STDOUT_FILENO, ": ", 2);
-		ft_print_str_in_hexa(pointer_to_addr);
+		ft_print_str(pointer_to_addr);
 		ft_putchar('\n');
 		pointer_to_addr += HEX_BASE_LEN;
 	}
@@ -49,7 +49,7 @@ void	ft_print_mem_addr(void *addr)
 	ft_putchar(HEX_BASE[address % HEX_BASE_LEN]);
 }
 
-void	ft_print_str_in_hexa(char *str)
+void	ft_print_str(char *str)
 {
 	char	buffer_str_hexa_line[(HEX_BASE_LEN * 2) + 1];
 	int		char_counter;
@@ -78,7 +78,6 @@ void	ft_form_str_hexa_line(char *src, char *hexa_line)
 {
 	int				i;
 	int				j;
-	int				hex_char;
 	unsigned int	asc_value;
 
 	i = 0;
@@ -86,15 +85,8 @@ void	ft_form_str_hexa_line(char *src, char *hexa_line)
 	while (*src && j < HEX_BASE_LEN)
 	{
 		asc_value = (unsigned int)*src;
-		while (asc_value > 9)
-		{
-			hexa_line[i] = HEX_BASE[asc_value / 16];
-			asc_value /= HEX_BASE_LEN;
-			i++;
-		}
-		hex_char = ((unsigned int)*src % HEX_BASE_LEN);
-		hexa_line[i] = HEX_BASE[hex_char];
-		i++;
+		hexa_line[i++] = HEX_BASE[asc_value / HEX_BASE_LEN];
+		hexa_line[i++] = HEX_BASE[asc_value % HEX_BASE_LEN];
 		src++;
 		j++;
 	}
@@ -108,10 +100,8 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-// int main(void)
+// int	main(void)
 // {
-// 	// int number = 4;
-// 	char name[] = "Gustavo da Silva Amaral Santoss";
-// 	ft_print_memory(name, 32);
+// 	ft_print_memory("Gustavo", 8);
 // 	return (0);
 // }

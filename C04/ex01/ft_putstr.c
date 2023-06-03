@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:25:12 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/29 06:31:45 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/03 19:23:24 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	ft_putstr(char *str)
 {
-	while (*str != '\0')
-		write(STDOUT_FILENO, str++, 1);
+	int	str_len;
+
+	str_len = 0;
+	while (str[str_len] != '\0')
+		str_len++;
+	write(STDOUT_FILENO, str, str_len);
 }

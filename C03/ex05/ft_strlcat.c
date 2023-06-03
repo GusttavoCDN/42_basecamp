@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:15:57 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/28 21:21:13 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/03 19:24:22 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ unsigned int	ft_strlcat(char *dst, const char *src, unsigned int size)
 	j = 0;
 	if (size > i)
 	{
-		while (src[j] && i < size - 1)
+		while (src[j] != '\0' && i < size - 1)
 			dst[i++] = src[j++];
 		dst[i] = '\0';
 		return (f_len);

@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 06:30:04 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/29 06:30:11 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/03 19:22:56 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	int	base_len;
 
 	base_len = ft_strlen(base);
-	if (base_len <= 1 || !ft_find_base_errors(base))
+	if (base_len <= 1 || ft_find_base_errors(base))
 		return ;
 	ft_putnbr(nbr, base, base_len);
 }
@@ -48,30 +48,32 @@ void	ft_putnbr(int number, char *base, int base_len)
 		ft_putchar(str_buffer[i--]);
 }
 
-int	ft_find_base_errors(char *str)
+int	ft_find_base_errors(char *base)
 {
 	int		i;
 	int		j;
-	int		str_len;
-	char	current_char;
+	int		base_len;
+	char	first_char;
+	char	second_char;
 
 	i = 0;
-	str_len = ft_strlen(str);
-	while (i < str_len)
+	base_len = ft_strlen(base);
+	while (i < base_len)
 	{
-		current_char = str[i];
-		if (current_char == '+' || current_char == '-')
-			return (0);
+		first_char = base[i];
+		if (first_char == '+' || first_char == '-')
+			return (1);
 		j = i + 1;
-		while (j < str_len)
+		while (j < base_len)
 		{
-			if (str[j] == current_char)
-				return (0);
+			second_char = base[j];
+			if (base[j] == first_char)
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	ft_strlen(char *str)
