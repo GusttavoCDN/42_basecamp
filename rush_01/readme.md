@@ -15,3 +15,11 @@
 - [x] The string should have a total of 16 digits.
 - [x] The program should fail if receives more than 1 parameter.
 - [x] The program should fail if not receive parameter.
+
+## TIPS
+
+```sh
+  echo $?
+```
+
+-- This command returns the exit status of the last command.
