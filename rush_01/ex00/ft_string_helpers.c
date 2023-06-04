@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 11:18:50 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/04 12:24:33 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/04 17:07:27 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	ft_putstr(char *str)
 
 int	ft_strlen(char *str)
 {
-	char	*pointer;
+	int	counter;
 
-	pointer = str;
-	while (*pointer != '\0')
-		pointer++;
-	return (pointer - str);
+	counter = 0;
+	while (str[counter] != '\0')
+		counter++;
+	return (counter);
 }
