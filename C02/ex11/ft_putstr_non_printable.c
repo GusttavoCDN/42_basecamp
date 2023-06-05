@@ -6,19 +6,19 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 13:05:04 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/04 10:38:39 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:37:06 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-#define HEX_BASE "0123456789abcdef"
-#define HEX_CHAR_LEN 4
+// #define HEX_BASE "0123456789abcdef"
+// #define HEX_CHAR_LEN 4
 
 void	ft_put_non_printable_char(char c);
-void	put_str_non_printable(char *str);
+void	ft_put_str_non_printable(char *str);
 
-void	put_str_non_printable(char *str)
+void	ft_put_str_non_printable(char *str)
 {
 	while (*str)
 	{
@@ -32,13 +32,15 @@ void	put_str_non_printable(char *str)
 
 void	ft_put_non_printable_char(char c)
 {
-	char	hex_char[HEX_CHAR_LEN];
+	char	*hex_base;
+	char	hex_char[4];
 
+	hex_base = "0123456789abcdef";
 	hex_char[0] = '\\';
-	hex_char[1] = HEX_BASE[c / 16];
-	hex_char[2] = HEX_BASE[c % 16];
+	hex_char[1] = hex_base[c / 16];
+	hex_char[2] = hex_base[c % 16];
 	hex_char[3] = '\0';
-	write(STDOUT_FILENO, hex_char, HEX_CHAR_LEN);
+	write(STDOUT_FILENO, hex_char, 4);
 }
 
 // int main(void)
