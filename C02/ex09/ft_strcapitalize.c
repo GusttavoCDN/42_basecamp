@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 21:36:19 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/05 17:32:09 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/06 00:16:37 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ char	*ft_strcapitalize(char *str)
 	int	prev_letter;
 
 	i = 0;
-	if (*str == '\0')
-		return ((void *)0);
 	while (str[i] != '\0')
 	{
 		prev_letter = i - 1;
-		if (!ft_is_alphanumeric(str[prev_letter]) && ft_is_alphanumeric(str[i]))
+		if (i == 0)
+			str[i] = ft_char_to_upper(str[i]);
+		if (i > 0 && !ft_is_alphanumeric(str[prev_letter])
+			&& ft_is_alphanumeric(str[i]))
 			str[i] = ft_char_to_upper(str[i]);
 		else
 			str[i] = ft_char_to_lower(str[i]);
