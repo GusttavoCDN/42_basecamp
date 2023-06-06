@@ -6,10 +6,11 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 21:25:34 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/04 00:28:57 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/06 11:03:47 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// #include <limits.h>
 #include <unistd.h>
 
 void	ft_putnbr(int number);
@@ -34,3 +35,11 @@ void	ft_putchar(char c)
 {
 	write(STDOUT_FILENO, &c, 1);
 }
+
+// int	main(void)
+// {
+// 	ft_putnbr(INT_MIN);
+// 	ft_putchar('\n');
+// 	ft_putnbr(INT_MAX);
+// 	return (0);
+// }
