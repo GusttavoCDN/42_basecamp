@@ -6,13 +6,18 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:57:11 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/03 19:25:27 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/06 00:01:04 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+* @brief This functions compares two functions using the ascii table as reference
+* @return Returns less than 0 if s1 is less than s2, 0 if they are equal,
+* and greater than 0 if s1 is greater than s2
+*/
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	if (n == 0)
 		return (0);
