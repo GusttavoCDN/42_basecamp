@@ -6,11 +6,11 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 06:30:04 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/07 01:47:41 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/07 01:50:34 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <stdio.h>
 #include <unistd.h>
 
 #define INT_MIN -2147483648
