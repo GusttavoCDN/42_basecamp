@@ -6,9 +6,11 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:06:41 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/06 11:07:07 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/07 01:36:56 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #define DECIMAL_BASE "0123456789"
 #define DECIMAL_BASE_LEN 10
@@ -48,24 +50,22 @@ int	ft_atoi_base(char *str, char *base)
 
 int	ft_find_base_errors(char *base)
 {
-	int		i;
-	int		j;
-	int		base_len;
-	char	first_char;
-	char	second_char;
+	int	i;
+	int	j;
+	int	base_len;
 
 	i = 0;
 	base_len = ft_strlen(base);
 	while (i < base_len)
 	{
-		first_char = base[i];
-		if (first_char == '+' || first_char == '-')
+		if (ft_isspace(base[i]))
+			return (1);
+		if (base[i] == '+' || base[i] == '-')
 			return (1);
 		j = i + 1;
 		while (j < base_len)
 		{
-			second_char = base[j];
-			if (base[j] == first_char)
+			if (base[j] == base[i])
 				return (1);
 			j++;
 		}
@@ -102,25 +102,58 @@ int	ft_strlen(char *str)
 
 int	ft_isspace(int c)
 {
-	if (c >= '\t' && c <= '\r' || c == ' ')
+	c = (unsigned char)c;
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
 		return (1);
 	return (0);
 }
 
+// void	ft_atoi_base_test(char *str, char *base, int expected_number)
+// {
+// 	int	ft_buff;
+
+// 	ft_buff = ft_atoi_base(str, base);
+// 	if (ft_buff != expected_number)
+// 		printf("> KO, expected: %d got: %d\n", expected_number, ft_buff);
+// 	else
+// 		printf("> OK, result: %d\n", ft_buff);
+// }
+
 // int	main(void)
 // {
-// 	int	test1;
-// 	int	test2;
-// 	int	test3;
-// 	int	test4;
-// 	int	test5;
-
-// 	test1 = ft_atoi_base("---1FFZCF", "0123456789ABCDEF");
-// 	test2 = ft_atoi_base("01010101", "01");
-// 	test3 = ft_atoi_base("01010101", "111");
-// 	test4 = ft_atoi_base("01010101", "111");
-// 	test5 = ft_atoi_base("0231342", "01234567");
-// 	return (0);
+// 	// teste com bases binarias
+// 	printf("Bases binarias:\n");
+// 	ft_atoi_base_test("\n \t\r \v \f++++--1000,.fs", "01", 8);
+// 	ft_atoi_base_test("\n \t\r \v \f++++--*/*/**,.fs", "/*", 43);
+// 	// teste com bases octais
+// 	printf("Bases octais:\n");
+// 	ft_atoi_base_test("\n \t\r \v \f++-++--205,.fs", "01234567", -133);
+// 	ft_atoi_base_test("\n \t\r \v \f+-+++--fdd,.fs", "abcdefgh", -347);
+// 	// teste com bases decimais
+// 	printf("Bases decimais:\n");
+// 	ft_atoi_base_test("\n \t\r \v \f++-++--2147483648,.fs", "0123456789",
+// 			-2147483648);
+// 	ft_atoi_base_test("\n \t\r \v \f+-+++-+jjf,.fs", "abcdefghij", 995);
+// 	// teste com bases hexadecimais
+// 	printf("Bases hexadecimais:\n");
+// 	ft_atoi_base_test("\n \t\r \v \f++-+-+--F0FA,.fs", "0123456789ABCDEF",
+// 			61690);
+// 	ft_atoi_base_test("\n \t\r \v \f+-+++-+ninc,.fs", "abcdefghijklmnop",
+// 			55506);
+// 	// teste com bases invalidas
+// 	printf("Bases invalidas:\n");
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0123456678", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0123\n", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0123\v", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0123\t", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0123\f", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0123\r", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0123 ", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0123+", 0);
+// 	ft_atoi_base_test("\n \t\r ++-++-123456,das", "0123-", 0);
 // }
 
 // HEX Calc

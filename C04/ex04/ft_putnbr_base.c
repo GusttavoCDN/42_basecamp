@@ -6,10 +6,11 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 06:30:04 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/06 11:06:46 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/07 01:47:41 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 
 #define INT_MIN -2147483648
@@ -18,6 +19,7 @@ int		ft_find_base_errors(char *str);
 int		ft_strlen(char *str);
 void	ft_putchar(char c);
 void	ft_print(int number, char *base, int base_len);
+int		ft_isspace(int c);
 
 void	ft_putnbr_base(int nbr, char *base)
 {
@@ -39,7 +41,7 @@ void	ft_print(int number, char *base, int base_len)
 		ft_putchar('-');
 		nbr = -nbr;
 	}
-	if (nbr < 9)
+	if (nbr < base_len)
 		return (ft_putchar(base[nbr % base_len]));
 	ft_print(nbr / base_len, base, base_len);
 	ft_putchar(base[nbr % base_len]);
@@ -47,24 +49,23 @@ void	ft_print(int number, char *base, int base_len)
 
 int	ft_find_base_errors(char *base)
 {
-	int		i;
-	int		j;
-	int		base_len;
-	char	first_char;
-	char	second_char;
+	int	i;
+	int	j;
+	int	base_len;
 
 	i = 0;
 	base_len = ft_strlen(base);
 	while (i < base_len)
 	{
-		first_char = base[i];
-		if (first_char == '+' || first_char == '-')
+		if (base[i] == '\t' || base[i] == '\n' || base[i] == '\v'
+			|| base[i] == '\f' || base[i] == '\r' || base[i] == ' ')
+			return (1);
+		if (base[i] == '+' || base[i] == '-')
 			return (1);
 		j = i + 1;
 		while (j < base_len)
 		{
-			second_char = base[j];
-			if (second_char == first_char)
+			if (base[j] == base[i])
 				return (1);
 			j++;
 		}
@@ -93,12 +94,40 @@ void	ft_putchar(char c)
 
 // int	main(void)
 // {
+// 	// base binaria
+// 	printf("Bases binarias, n = 47. \"01\" e \"\\/\"\n");
+// 	ft_putnbr_base(47, "01");
+// 	ft_putchar('\n');
+// 	printf("Esperado: 101111\n");
+// 	ft_putnbr_base(47, "\\/");
+// 	ft_putchar('\n');
+// 	printf("Esperado: /\\////\n");
+// 	// base 5
+// 	printf("Bases 5, n = 36. \"01345\" e \"sd2ek\"\n");
+// 	ft_putnbr_base(36, "01345");
+// 	ft_putchar('\n');
+// 	printf("Esperado: 131\n");
+// 	ft_putnbr_base(36, "sd2ek");
+// 	ft_putchar('\n');
+// 	printf("Esperado: d2d\n");
+// 	// base 10
+// 	printf("Bases 10, n = %d. \"0123456789\" e \",.;\\][{}@#\"\n", INT_MIN);
 // 	ft_putnbr_base(INT_MIN, "0123456789");
 // 	ft_putchar('\n');
-// 	ft_putnbr_base(INT_MIN, "0123456789ABCDEF");
+// 	printf("Esperado: -2147483648\n");
+// 	ft_putnbr_base(INT_MIN, ",.;\\][{}@#");
 // 	ft_putchar('\n');
-// 	ft_putnbr_base(INT_MIN, "01");
+// 	printf("Esperado: -;.]}]@\\{]@\n");
+// 	// base 16
+// 	ft_putnbr_base(-65040, "0123456789ABCDEF");
 // 	ft_putchar('\n');
-// 	ft_putnbr_base(INT_MIN, "poneyvif");
+// 	printf("Esperado: -FE10\n");
+// 	ft_putnbr_base(-65040, "jdlskmnMKZxVuzfa");
+// 	ft_putchar('\n');
+// 	printf("Esperado: -afdj\n");
+// 	// base 0 e base 1, nao pode aparecer nada
+// 	printf("Bases 0 e 1, nao deve aparecer nada, n = 256.\n");
+// 	ft_putnbr_base(-29092, "0");
+// 	ft_putnbr_base(-29092, "");
 // 	return (0);
 // }

@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:07:19 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/03 19:23:14 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/07 01:37:12 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_atoi(char *str)
 
 int	ft_isspace(int c)
 {
-	if (c >= '\t' && c <= '\r' || c == ' ')
+	if ((c >= '\t' && c <= '\r') || c == ' ')
 		return (1);
 	return (0);
 }
