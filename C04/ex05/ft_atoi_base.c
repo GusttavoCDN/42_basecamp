@@ -6,11 +6,11 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:06:41 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/07 01:36:56 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:11:37 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <stdio.h>
 
 #define DECIMAL_BASE "0123456789"
 #define DECIMAL_BASE_LEN 10

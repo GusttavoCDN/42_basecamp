@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 16:07:19 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/07 01:37:12 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:40:09 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_atoi(char *str)
 		str++;
 	}
 	number = 0;
-	while (*str >= '1' && *str <= '9')
+	while (*str >= '0' && *str <= '9' && *str != '\0')
 	{
 		number *= 10;
 		number += *str - '0';
