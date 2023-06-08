@@ -6,11 +6,11 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:52:15 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/08 13:18:11 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/08 13:35:41 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 int		ft_isspace(int c);
@@ -34,10 +34,12 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 
 char	*ft_itoa_base(int number, char *base)
 {
-	char	*number_str;
-	int		number_len;
-	int		base_len;
+	char		*number_str;
+	int			number_len;
+	int			base_len;
+	long int	nbr;
 
+	nbr = number;
 	base_len = ft_strlen(base);
 	number_len = ft_calc_base_digits(number, base_len);
 	if (number < 0)
@@ -46,15 +48,15 @@ char	*ft_itoa_base(int number, char *base)
 	if (!number_str)
 		return (NULL);
 	number_str[number_len] = '\0';
-	if (number < 0)
+	if (nbr < 0)
 	{
 		number_str[0] = '-';
-		number *= -1;
+		nbr *= -1;
 	}
-	while (number_len > 0)
+	while (nbr != 0)
 	{
-		number_str[--number_len] = base[number % base_len];
-		number /= base_len;
+		number_str[--number_len] = base[nbr % base_len];
+		nbr /= base_len;
 	}
 	return (number_str);
 }
@@ -65,7 +67,7 @@ int	ft_calc_base_digits(int number, int base_len)
 
 	digits = 1;
 	number /= base_len;
-	while (number > 0)
+	while (number)
 	{
 		digits++;
 		number /= base_len;
@@ -105,10 +107,22 @@ int	ft_find_base_errors(char *base)
 // {
 // 	char	*conversion;
 
-// 	conversion = ft_convert_base("0", "01", "0123456789ABCDEF");
+// 	conversion = ft_convert_base("-10000000000000000000000000000000", "01",
+// 			"0123456789ABCDEF");
 // 	printf("%s\n", conversion);
 // 	free(conversion);
-// 	conversion = ft_convert_base("111010111", "01", "0123456789ABCDEF");
+// 	conversion = ft_convert_base("1111111111111111111111111111111", "01",
+// 			"0123456789ABCDEF");
+// 	printf("%s\n", conversion);
+// 	free(conversion);
+// 	conversion = ft_convert_base("11111111111111", "01", "0123456789ABCDEF");
+// 	printf("%s\n", conversion);
+// 	free(conversion);
+// 	conversion = ft_convert_base("100111011", "01", "0123456789ABCDEF");
+// 	printf("%s\n", conversion);
+// 	free(conversion);
+// 	conversion = ft_convert_base("-10000000000000000000000000000000", "01",
+// 			"0123456789");
 // 	printf("%s\n", conversion);
 // 	free(conversion);
 // }
