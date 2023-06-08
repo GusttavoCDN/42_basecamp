@@ -6,11 +6,11 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:52:15 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/08 13:35:41 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/08 13:36:26 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <stdio.h>
 #include <stdlib.h>
 
 int		ft_isspace(int c);
