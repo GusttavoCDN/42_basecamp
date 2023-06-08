@@ -6,11 +6,10 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 13:05:04 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/06 10:54:06 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:51:26 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
 #define HEX_BASE "0123456789abcdef"

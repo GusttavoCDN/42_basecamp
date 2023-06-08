@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 12:21:05 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/05 17:40:12 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:58:46 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int				ft_strlen(char *str);
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int				i;
+	unsigned int	i;
 	unsigned int	src_len;
 
 	i = 0;
@@ -43,3 +43,12 @@ int	ft_strlen(char *str)
 	}
 	return (str_len);
 }
+
+// int	main(void)
+// {
+// 	char	buffer[1];
+
+// 	ft_strlcpy(buffer, "Hello", 20);
+// 	printf("%s\n", buffer);
+// 	return (0);
+// }
