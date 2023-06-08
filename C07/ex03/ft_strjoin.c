@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 10:55:27 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/08 11:51:31 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/08 13:13:15 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,65 +86,65 @@ unsigned int	ft_strlcat(char *dst, const char *src, unsigned int size)
 	return (ft_strlen(src) + size);
 }
 
-int	main(void)
-{
-	char	*buf0[6];
-	char	*ret0;
-	char	*ret1;
-	char	*ret2;
-	char	*ret3;
-	char	*ret4;
-	char	*ret5;
-	char	*ret6;
-	char	*tru0;
-	char	*tru1;
-	char	*tru2;
-	char	*tru3;
+// int	main(void)
+// {
+// 	char	*buf0[6];
+// 	char	*ret0;
+// 	char	*ret1;
+// 	char	*ret2;
+// 	char	*ret3;
+// 	char	*ret4;
+// 	char	*ret5;
+// 	char	*ret6;
+// 	char	*tru0;
+// 	char	*tru1;
+// 	char	*tru2;
+// 	char	*tru3;
 
-	printf("\e[1;31m-- Exercício 03: \e[0m");
-	buf0[0] = "caminla";
-	buf0[1] = "eduardo";
-	buf0[2] = "mauricio";
-	buf0[3] = "larissa";
-	buf0[4] = "wagner";
-	buf0[5] = "gabriel";
-	ret0 = NULL;
-	ret1 = NULL;
-	ret2 = NULL;
-	ret3 = NULL;
-	ret4 = NULL;
-	ret5 = NULL;
-	ret6 = NULL;
-	tru0 = "caminla : eduardo : mauricio : larissa : wagner : gabriel";
-	;
-	tru1 = "caminla, eduardo";
-	;
-	tru2 = "larissa-wagner-gabriel";
-	;
-	tru3 = "eduardomauricio";
-	;
-	if (strcmp(ret0 = ft_strjoin(6, buf0, " : "), tru0) != 0)
-		printf("KO, test00\n");
-	else if (strcmp(ret1 = ft_strjoin(2, buf0, ", "), tru1) != 0)
-		printf("KO, test01\n");
-	else if (strcmp(ret2 = ft_strjoin(3, buf0 + 3, "-"), tru2) != 0)
-		printf("KO, test02\n");
-	else if (strcmp(ret3 = ft_strjoin(2, buf0 + 1, ""), tru3) != 0)
-		printf("KO, test03\n");
-	else if (strcmp(ret4 = ft_strjoin(0, buf0, "0"), "") != 0)
-		printf("KO, test04\n");
-	else if (strcmp(ret5 = ft_strjoin(2, buf0 + 2, "0"),
-					"mauricio0larissa") != 0)
-		printf("KO, test05\n");
-	else if (strcmp(ret6 = ft_strjoin(-3, buf0 + 2, "0"), "") != 0)
-		printf("KO, test06\n");
-	else
-		printf("OK\n");
-	free(ret0);
-	free(ret1);
-	free(ret2);
-	free(ret3);
-	free(ret4);
-	free(ret5);
-	free(ret6);
-}
+// 	printf("\e[1;31m-- Exercício 03: \e[0m");
+// 	buf0[0] = "caminla";
+// 	buf0[1] = "eduardo";
+// 	buf0[2] = "mauricio";
+// 	buf0[3] = "larissa";
+// 	buf0[4] = "wagner";
+// 	buf0[5] = "gabriel";
+// 	ret0 = NULL;
+// 	ret1 = NULL;
+// 	ret2 = NULL;
+// 	ret3 = NULL;
+// 	ret4 = NULL;
+// 	ret5 = NULL;
+// 	ret6 = NULL;
+// 	tru0 = "caminla : eduardo : mauricio : larissa : wagner : gabriel";
+// 	;
+// 	tru1 = "caminla, eduardo";
+// 	;
+// 	tru2 = "larissa-wagner-gabriel";
+// 	;
+// 	tru3 = "eduardomauricio";
+// 	;
+// 	if (strcmp(ret0 = ft_strjoin(6, buf0, " : "), tru0) != 0)
+// 		printf("KO, test00\n");
+// 	else if (strcmp(ret1 = ft_strjoin(2, buf0, ", "), tru1) != 0)
+// 		printf("KO, test01\n");
+// 	else if (strcmp(ret2 = ft_strjoin(3, buf0 + 3, "-"), tru2) != 0)
+// 		printf("KO, test02\n");
+// 	else if (strcmp(ret3 = ft_strjoin(2, buf0 + 1, ""), tru3) != 0)
+// 		printf("KO, test03\n");
+// 	else if (strcmp(ret4 = ft_strjoin(0, buf0, "0"), "") != 0)
+// 		printf("KO, test04\n");
+// 	else if (strcmp(ret5 = ft_strjoin(2, buf0 + 2, "0"),
+// 					"mauricio0larissa") != 0)
+// 		printf("KO, test05\n");
+// 	else if (strcmp(ret6 = ft_strjoin(-3, buf0 + 2, "0"), "") != 0)
+// 		printf("KO, test06\n");
+// 	else
+// 		printf("OK\n");
+// 	free(ret0);
+// 	free(ret1);
+// 	free(ret2);
+// 	free(ret3);
+// 	free(ret4);
+// 	free(ret5);
+// 	free(ret6);
+// }
