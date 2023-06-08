@@ -6,13 +6,13 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 04:51:57 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/07 07:31:00 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:10:46 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_recursive_power(int nb, int power)
 {
-	if (power < 0 || (power == 0 && nb == 0))
+	if (power < 0)
 		return (0);
 	if (power == 0)
 		return (1);
@@ -58,7 +58,7 @@ int	ft_recursive_power(int nb, int power)
 // 		nb++;
 // 	}
 // 	// testando potencias 0(deve retornar 1)
-// 	printf("[3] Potencias positivas(deve retornar o numero elevado a potencia)\n");
+// 	printf("[3] Potencias positivas(deve retorn a potencia)\n");
 // 	nb = -4;
 // 	while (nb <= 4)
 // 	{
