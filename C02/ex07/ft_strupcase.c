@@ -6,22 +6,31 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 21:31:57 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/02 12:32:43 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:15:15 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str);
+char *ft_strupcase(char *str);
 
-char	*ft_strupcase(char *str)
+char *ft_strupcase(char *str)
 {
-	int	i;
+	char *aux;
 
-	i = 0;
-	while (str[i] != '\0')
+	aux = str;
+	while (*str != '\0')
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] = str[i] - 32;
-		i++;
+		if (*str >= 'a' && *str <= 'z')
+			*str = *str - 32;
+
+		str++;
 	}
-	return (str);
+	return (aux);
+}
+
+int main(void)
+{
+	char buffer[] = "Gustavo";
+
+	ft_strupcase(buffer);
+	return 0;
 }
