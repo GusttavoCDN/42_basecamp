@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 05:29:11 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/29 05:33:07 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/08 09:48:37 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	ft_print_params(char *params[], int params_size)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (i < params_size)
 	{
-		ft_putstr(params[++i]);
+		ft_putstr(params[i++]);
 		ft_putstr("\n");
 	}
 }

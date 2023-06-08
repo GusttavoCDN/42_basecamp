@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 05:45:07 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/05/29 06:33:12 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/08 10:03:01 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putstr(char *str);
 void	ft_print_params(char *params[], int params_size);
 int		ft_strcmp(char *s1, char *s2);
-void	ft_sort_strings_a(char *params[]);
+void	ft_sort_strings(char *params[]);
 
 int	main(int argc, char *argv[])
 {
@@ -28,11 +28,11 @@ void	ft_print_params(char *params[], int params_size)
 {
 	int	i;
 
-	i = 0;
-	ft_sort_strings_a(params);
+	i = 1;
+	ft_sort_strings(params);
 	while (i < params_size)
 	{
-		ft_putstr(params[++i]);
+		ft_putstr(params[i++]);
 		ft_putstr("\n");
 	}
 }
@@ -53,7 +53,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return ((unsigned int)*s1 - (unsigned int)*s2);
 }
 
-void	ft_sort_strings_a(char *strings[])
+void	ft_sort_strings(char *strings[])
 {
 	char	*temp;
 	int		i;
