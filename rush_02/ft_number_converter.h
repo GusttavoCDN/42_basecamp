@@ -6,21 +6,26 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 12:03:13 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/10 12:53:27 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/10 14:58:54 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Buffer Size => The reason to alloc so many is to ensure
+// we can handle large dicts files withou problems.
+// Bit calculator => https://pt.calcuworld.com/calculadoras-para-empresas/calculadora-de-bytes/
 
 #ifndef FT_NUMBER_CONVERTER_H
 # define FT_NUMBER_CONVERTER_H
 
 # define TRUE 1
 # define FALSE 0
-# define DICT_PATH "./numbers.dict"
-# define BUFFER_SIZE 350
+# define DEFAULT_DICT_PATH "./numbers.dict"
+# define MAX_BUFFER_SIZE 4096
 # define DEFAULT_DICT_SIZE 32
 
 // Standard Library headers
 # include <fcntl.h>
+# include <stdlib.h>
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
@@ -61,4 +66,5 @@ int				ft_parse_with_custom_dict(char *number, char *dict);
 */
 int				ft_atoi(char *str);
 
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 #endif // FT_NUMBER_CONVERTER_H
