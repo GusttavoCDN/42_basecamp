@@ -1,18 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_helper_functions.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 16:07:19 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/10 12:13:30 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/06/11 01:53:11 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/06/11 01:55:01 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_number_converter.h"
+#include "../include/rush02.h"
 
-int	ft_isspace(int c);
+int	ft_isalpha(int c)
+{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (TRUE);
+	return (FALSE);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	length;
+	size_t	i;
+
+	length = ft_strlen(src);
+	if (size <= 0)
+		return (length);
+	i = 0;
+	while (src[i] && (i < size - 1))
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (length);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	length;
+
+	length = 0;
+	while (s[length])
+		length++;
+	return (length);
+}
+
+int		ft_isspace(int c);
 
 int	ft_atoi(char *str)
 {

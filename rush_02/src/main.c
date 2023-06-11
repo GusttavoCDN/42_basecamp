@@ -6,11 +6,11 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 11:58:05 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/10 15:15:51 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/11 02:20:30 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_number_converter.h"
+#include "../include/rush02.h"
 
 // Just to remember, from the second position (1) the values on argv arrays are
 // anything we receive as argument.
