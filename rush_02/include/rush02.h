@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 12:03:13 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/11 02:07:51 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/11 02:28:54 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@
 * @brief This functions receives the representation of a number
 * and tries to parse it to his string representation using a dict file.
 */
-int	ft_parse_with_default_dict(char *number);
+int		ft_parse_with_default_dict(char *number);
 
 /*
 * @brief This functions receives the representation of a number
 * and a set of dict rules and tries to parse the number to his string
 * representation acordingly the dict rules.
 */
-int	ft_parse_with_custom_dict(char *number, char *dict);
+int		ft_parse_with_custom_dict(char *number, char *dict);
 
-#endif // RUSH02_J
+void	ft_parse_number_to_string(int nbr, t_dict **dict);
+#endif // RUSH02_H

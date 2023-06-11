@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 00:58:43 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/11 02:20:27 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/11 02:49:14 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ void	ft_read_dict(char *buffer, char *dict_path)
 	close(dict_fd);
 }
 
-t_dict	*ft_format_dict(char *buffer)
+t_dict	**ft_format_dict(char *buffer)
 {
 	size_t	lines;
-	size_t	counter;
 	t_dict	**dict_buffer;
 
 	lines = ft_count_lines(buffer);
@@ -35,6 +34,7 @@ t_dict	*ft_format_dict(char *buffer)
 	if (dict_buffer == NULL)
 		return (NULL);
 	ft_fill_dict(dict_buffer, buffer, lines);
+	return (dict_buffer);
 }
 
 static void	ft_fill_dict(t_dict **dict_buffer, char *buffer, size_t lines)

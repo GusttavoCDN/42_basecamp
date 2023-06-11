@@ -15,5 +15,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int		ft_isalpha(int c);
 size_t	ft_strlen(const char *s);
 int		ft_isspace(int c);
+void	ft_putstr(char *str);
+int		ft_calc_nbr_digits(int number, int base_len);
 
 #endif // FT_HELPERS_H

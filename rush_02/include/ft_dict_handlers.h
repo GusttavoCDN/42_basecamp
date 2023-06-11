@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 01:35:07 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/11 01:59:11 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/11 02:27:05 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_dict
 
 // Function declarations
 
-t_dict			*ft_format_dict(char *buffer);
+t_dict			**ft_format_dict(char *buffer);
 void			ft_read_dict(char *buffer, char *dict_path);
 int				ft_count_lines(char *buffer);
 int				ft_line_len(char *line);
