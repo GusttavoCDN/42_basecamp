@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/11 23:18:34 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/06/11 23:19:09 by gusda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_stock_str.h"
 #include <unistd.h>
 
-void ft_putstr(char *str);
+void	ft_putstr(char *str);
+void	ft_putchar(char c);
+void	ft_putnbr(int number);
 
-void ft_putchar(char c);
-
-void ft_putnbr(int number);
-
-void ft_show_tab(struct s_stock_str *par)
+void	ft_show_tab(struct s_stock_str *par)
 {
 	while (par->size)
 	{
@@ -20,33 +31,30 @@ void ft_show_tab(struct s_stock_str *par)
 	}
 }
 
-void ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
 	while (*str != '\0')
 		write(STDOUT_FILENO, str++, 1);
 }
 
-void ft_putnbr(int number)
+void	ft_putnbr(int number)
 {
 	if (number == -2147483648)
 	{
 		write(STDOUT_FILENO, "-2147483648", 11);
-		return;
+		return ;
 	}
-
 	if (number < 0)
 	{
 		ft_putchar('-');
 		number = -number;
 	}
-
 	if (number > 9)
 		ft_putnbr(number / 10);
-
 	ft_putchar('0' + (number % 10));
 }
 
-void ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(STDOUT_FILENO, &c, 1);
 }
