@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 19:41:02 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/12 19:41:03 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/06/12 13:48:25 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/06/12 18:39:59 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_STR_H
-# define FT_STOCK_STR_H
+#include "../includes/ft.h"
 
-typedef struct s_stock_str
+void	ft_putstr(char *str)
 {
-	int		size;
-	char	*str;
-	char	*copy;
-}			t_stock_str;
+	int	len;
 
-#endif
+	len = ft_strlen(str);
+	write(1, str, len);
+}

@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 20:56:50 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/05 17:40:17 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/12 18:29:35 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ char	*ft_strcpy(char *dest, char *src)
 
 	str_begin = src;
 	while (*src != '\0')
-		*dest++ = *src++;
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
 	*dest = '\0';
 	return (str_begin);
 }

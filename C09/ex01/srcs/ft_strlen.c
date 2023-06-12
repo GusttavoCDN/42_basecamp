@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 19:41:02 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/12 19:41:03 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/06/12 13:35:15 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/06/12 18:40:16 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_STR_H
-# define FT_STOCK_STR_H
+#include "../includes/ft.h"
 
-typedef struct s_stock_str
+int	ft_strlen(char *str)
 {
-	int		size;
-	char	*str;
-	char	*copy;
-}			t_stock_str;
+	char	*begin;
 
-#endif
+	begin = str;
+	while (*str != '\0')
+		str++;
+	return (str - begin);
+}

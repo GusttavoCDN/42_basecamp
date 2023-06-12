@@ -6,11 +6,12 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 23:09:34 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/11 23:17:54 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/12 19:41:46 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stock_str.h"
+#include <stdlib.h>
 
 int					ft_strlen(char *str);
 char				*ft_strdup(char *src);
@@ -30,9 +31,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		stock_str_tab[i] = ft_create_stock_str(av[i]);
 		i++;
 	}
-	stock_str_tab[i].size = 0;
-	stock_str_tab[i].str = NULL;
-	stock_str_tab[i].copy = NULL;
+	stock_str_tab[i] = (struct s_stock_str){0, 0, 0};
 	return (stock_str_tab);
 }
 
@@ -76,14 +75,3 @@ char	*ft_strdup(char *src)
 	new_string[i] = '\0';
 	return (new_string);
 }
-
-// int	main(void)
-// {
-// 	char	*strs[3];
-
-// 	strs[0] = "Sasuke";
-// 	strs[1] = "Naruto";
-// 	strs[2] = "Kakashi";
-// 	ft_strs_to_tab(3, strs);
-// 	return (0);
-// }

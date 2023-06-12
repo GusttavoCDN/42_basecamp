@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 19:41:02 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/12 19:41:03 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/06/12 13:48:33 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/06/12 18:40:15 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_STR_H
-# define FT_STOCK_STR_H
+#include "../includes/ft.h"
 
-typedef struct s_stock_str
+void	ft_swap(int *a, int *b)
 {
-	int		size;
-	char	*str;
-	char	*copy;
-}			t_stock_str;
+	int	tmp;
 
-#endif
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}

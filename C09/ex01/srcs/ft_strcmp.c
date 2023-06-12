@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 19:41:02 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/12 19:41:03 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/06/12 13:48:28 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/06/12 18:40:17 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_STR_H
-# define FT_STOCK_STR_H
+#include "../includes/ft.h"
 
-typedef struct s_stock_str
+int	ft_strcmp(char *s1, char *s2)
 {
-	int		size;
-	char	*str;
-	char	*copy;
-}			t_stock_str;
-
-#endif
+	while (*s1 == *s2 && *s1 != '\0' && *s2 != '\0')
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
+}
