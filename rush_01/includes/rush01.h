@@ -5,23 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/04 11:16:38 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/04 11:22:46 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/06/22 19:10:43 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/06/22 22:49:19 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RUSH01_H
 # define RUSH01_H
 
-// Libraries
-# include "unistd.h"
+// Standard Library headers
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-// CONSTANTS
 # define TRUE 1
 # define FALSE 0
 
-// Helpers Headers
-# include "./ft_input_validator.h"
-# include "./ft_string_helpers.h"
+// Related headers
+// # include "libft.h"
 
-#endif
+// Enum declarations
+
+// Macro declarations
+
+// Struct declarations
+
+// Function declarations
+
+int		ft_atoi(const char *str);
+int		is_input_valid(int board_size, char *constraints);
+size_t	ft_strlen(char *str);
+
+#endif // RUSH01_H

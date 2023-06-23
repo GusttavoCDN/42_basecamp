@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_helpers.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/04 11:18:50 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/04 17:07:27 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/06/22 21:06:20 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/06/22 22:49:23 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/rush01.h"
+#include "../includes/rush01.h"
 
-void	ft_putstr(char *str)
+size_t	ft_strlen(char *str)
 {
-	int	str_len;
+	size_t	count;
 
-	str_len = 0;
-	while (str[str_len] != '\0')
-		str_len++;
-	write(STDOUT_FILENO, str, str_len);
-}
-
-int	ft_strlen(char *str)
-{
-	int	counter;
-
-	counter = 0;
-	while (str[counter] != '\0')
-		counter++;
-	return (counter);
+	count = 0;
+	while (str[count] != '\0')
+		count++;
+	return (count);
 }
