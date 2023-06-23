@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 19:10:43 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/22 22:49:19 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/23 01:57:54 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 
 int		ft_atoi(const char *str);
 int		is_input_valid(int board_size, char *constraints);
+int		*create_constraints_array(int len, char *constraints);
 size_t	ft_strlen(char *str);
+void	complete_result_board(int board_size);
 
 #endif // RUSH01_H

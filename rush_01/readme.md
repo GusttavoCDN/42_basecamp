@@ -44,7 +44,7 @@ Third Step: Discard all posibilities from "i" to "N"
 	i: Initial impossible value each position of board
 
 Fourth Step: complete the coluns and rows
-
+w
 	After discard impossible values, complete the coluns and rows with single candidates
 
 Fifth step  	   
