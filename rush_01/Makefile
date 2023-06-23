@@ -1,56 +1,61 @@
-#------------------------------------------------------------------------------#
-#                                VARIABLES                                     #
-#------------------------------------------------------------------------------#
+################################################################################
+#                                     CONFIG                                   #
+################################################################################
 
-# Compiler and flags
-CC		=	cc
-CFLAGS	=	-Wall -Werror -Wextra -g
-RM		=	rm -rf
+NAME        := rush01
+CC        := gcc
+FLAGS    := -Wall -Wextra -Werror
 
-# Output file name
-NAME	=	rush01
+################################################################################
+#                                 PROGRAM'S SRCS                               #
+################################################################################
 
-BIN_FOLDER = bin
+SRCS        :=      src/ft_strlen.c \
+                    src/ft_atoi.c \
+                    src/ft_board_resolution.c \
+                    src/input_validations.c \
+                    src/ft_result_board.c \
+                    app/scrummaster.c \
+                          
+OBJS        := $(SRCS:.c=.o)
+BIN_DIR    := bin
 
-# Sources are all .c files
-SRC_FOLDER = src
-SRC_FILES = ft_atoi.c ft_strlen.c input_validations.c \
-	ft_board_resolution.c ft_result_board.c
-SRC = $(addprefix $(SRC_FOLDER)/, $(SRC_FILES))
+.c.o:
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
-# Objects are all .o files
-OBJ_FOLDER = obj
-APP_FOLDER = app
-OBJS = $(addprefix $(OBJ_FOLDER)/, $(SRC_FILES:.c=.o))
+################################################################################
+#                                  Makefile  objs                              #
+################################################################################
 
-# Includes are all .h files
-INCLUDES_FOLDER = includes
-INCLUDE_FILES = rush01.h
-INCLUDES = $(addprefix $(INCLUDES_FOLDER)/, $(INCLUDE_FILES)) 
 
-#------------------------------------------------------------------------------#
-#                                 TARGETS                                      #
-#------------------------------------------------------------------------------#
+CLR_RMV		:= \033[0m
+RED		    := \033[1;31m
+GREEN		:= \033[1;32m
+YELLOW		:= \033[1;33m
+BLUE		:= \033[1;34m
+CYAN 		:= \033[1;36m
+RM		    := rm -f
 
-all: $(NAME)
+${NAME}:	${OBJS} ${BIN_DIR}
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
+			${CC} ${FLAGS} -o ${BIN_DIR}/${NAME} ${OBJS}
+			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
-# Generates output file
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) ${APP_FOLDER}/scrummaster.c ${OBJS} -o $(BIN_FOLDER)/$(NAME)
+${BIN_DIR}:
+			mkdir -p ${BIN_DIR}
 
-# Compiles sources into objects
-$(OBJ_FOLDER)/%.o: $(SRC_FOLDER)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+all:		${NAME}
 
-# Removes objects
 clean:
-	$(RM) $(OBJS)
+			@ ${RM} *.o */*.o */*/*.o
+			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
-# Removes objects and executables
-fclean: clean
-	$(RM) $(BIN_FOLDER)/$(NAME)
+fclean:		clean
+			@ ${RM} ${NAME}
+			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 
-re: fclean all clean
+re:			fclean all
 
-# Removes objects and executables and remakes
-.PHONY: fclean all re clean
+.PHONY:		all clean fclean re
+
+

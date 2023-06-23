@@ -42,3 +42,7 @@ int	main(int argc, char **argv)
 	// printf("Passe um ou dois parametros animal");
 	return (2);
 }
+
+
+
+
