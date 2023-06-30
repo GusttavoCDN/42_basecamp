@@ -4,7 +4,7 @@
 
 NAME        := rush01
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror
+FLAGS    := -Wextra -Werror -g
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
@@ -14,7 +14,9 @@ SRCS        :=      src/ft_strlen.c \
                     src/ft_atoi.c \
                     src/ft_board_resolution.c \
                     src/input_validations.c \
-                    src/ft_result_board.c \
+					src/resolve_board.c \
+					src/create_board.c \
+					src/debug_array.c \
                     app/scrummaster.c \
                           
 OBJS        := $(SRCS:.c=.o)

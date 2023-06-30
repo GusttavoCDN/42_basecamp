@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 19:10:43 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/06/23 01:57:54 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/06/23 22:23:38 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,30 @@
 
 // Struct declarations
 
+typedef struct s_contraints
+{
+	int	*left;
+	int	*right;
+	int	*down;
+	int	*up;
+}		t_contraints;
+
+typedef struct s_coordinates
+{
+	int	row;
+	int	column;
+}		t_coordinates;
+
 // Function declarations
 
 int		ft_atoi(const char *str);
 int		is_input_valid(int board_size, char *constraints);
 int		*create_constraints_array(int len, char *constraints);
 size_t	ft_strlen(char *str);
-void	complete_result_board(int board_size);
+int		**create_board(int board_size);
+int	**resolve_board(t_contraints *contraints,
+					int **board,
+					int board_size);
+void	debug_array(int **board, size_t size);
 
 #endif // RUSH01_H

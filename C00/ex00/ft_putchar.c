@@ -12,9 +12,10 @@
 
 #include <unistd.h>
 
-void	ft_putchar(char c);
-
 void	ft_putchar(char c)
 {
+	// The syntax &c to pass a char is to pass the address of the char in memory
+	// STDOUT_FILENO is just a constant to represent the file descriptor, in
+	// this case is 1 for standard output.
 	write(STDOUT_FILENO, &c, 1);
 }

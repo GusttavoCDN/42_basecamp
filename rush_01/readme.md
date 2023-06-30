@@ -13,8 +13,7 @@
 - [x] The table size should be a digit from 4 to 9
 - [x] The total size of the string must be the table (size * size) bytes.
 - [x] The string should have only digits from 1 to 4.
-- [] The program should fail if receives more than 1 parameter.
-- [] The program should fail if not receive parameter.
+- [x] The program should fail if not receive parameter.
 
 
 First Step : Decid the size of board
@@ -36,27 +35,36 @@ example: "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2"
 
 Third Step: Discard all posibilities from "i" to "N"
 
-	(N + D + 2) - B = i
+	(5 + 0 + 2) - 3 = 4
 
-	N: size of board
-	D: distance of board
-	B: Value of board 
-	i: Initial impossible value each position of board
+	N: 5
+	D: 0
+	B: 3 
+
+	4x1000
+	5x10000
+
+	podemos eliminar de 2 até 5
 
 Fourth Step: complete the coluns and rows
 w
 	After discard impossible values, complete the coluns and rows with single candidates
 
-Fifth step  	   
+---------------------------------------------------------------------------------------
 
-	based on edge pairs, discart impossible positions
-		
-		"A¹¹, A¹²,  A¹³, A¹, A¹², A¹², A¹², A¹², A¹², A¹², A¹²" 
+para os números de cima o intervalo é            de  0 até  N - 1
+para os números da direita o intervalo é         de  N até 2N - 1
+Para os números de baixo o intervalo é           de 2N até 3N - 1
+para os números da esquerda o intervalo é        de 3N até 4N - 1
 
-## TIPS
+	    0      1      2  ...(n-1)   
+(4N-1)[][]   [][]   [][]   [][]  N
+  14  [][]   [][]   [][]   [][]  5
+  13  [][]   [][]   [][]   [][]  6
+  3N  [][]   [][]   [][]   [][]  (2N - 1)
+	 (3N-1)  10      9     2N 
 
-```sh
-  echo $?
-```
 
 -- This command returns the exit status of the last command.
+
+<!-- "2 4 2 1 1 2 4 2 2 1 3 3 3 3 1 2" -->

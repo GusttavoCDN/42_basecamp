@@ -12,19 +12,14 @@
 
 #include <unistd.h>
 
-void	ft_putchar(char c);
-void	ft_print_alphabet(void);
-
 void	ft_print_alphabet(void)
 {
-	int	i;
+	char i;
 
 	i = 'a';
 	while (i <= 'z')
-		ft_putchar(i++);
-}
-
-void	ft_putchar(char c)
-{
-	write(STDOUT_FILENO, &c, 1);
+	{
+		write(STDOUT_FILENO, &i, 1);
+		i++;
+	}
 }

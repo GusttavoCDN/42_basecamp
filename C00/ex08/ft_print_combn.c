@@ -13,7 +13,7 @@
 #include <unistd.h>
 
 void	ft_print_numbers(char *numbers, int size, char *max_number);
-void	ft_update_digits(char *numbers, int size, char *max_number);
+void	ft_update_digits(char *numbers, int size, const char *max_number);
 
 void	ft_print_combn(int n)
 {
@@ -29,62 +29,41 @@ void	ft_print_combn(int n)
 	i = 0;
 	while (i < n)
 	{
-		numbers[i] = i + '0';
-		max_number[i] = (10 - n) + i + '0';
+		numbers[i] = (char)(i + '0');
+		max_number[i] = (char)((10 - n) + i + '0');
 		i++;
 	}
 	ft_print_numbers(numbers, n, max_number);
 }
-
 void	ft_print_numbers(char *numbers, int size, char *max_number)
 {
-	int	i;
+	int final_position;
 
-	i = 0;
-	if (numbers[0] == max_number[0])
+	final_position = size - 1;
+	while (numbers[0] != max_number[0])
 	{
-		while (i < size)
-			write(STDOUT_FILENO, &numbers[i++], 1);
-		write(STDOUT_FILENO, ".\n", 2);
-		return ;
+		write(STDOUT_FILENO, numbers, size);
+		write(STDERR_FILENO, ", ", 2);
+		if (numbers[final_position] + 1 <= '9')
+			numbers[final_position]++;
+		if (numbers[final_position] == max_number[final_position] && size > 1)
+		{
+			write(STDERR_FILENO, numbers, size);
+			write(STDERR_FILENO, ", ", 2);
+			ft_update_digits(numbers, size, max_number);
+		}
 	}
-	while (i < size)
-		write(STDOUT_FILENO, &numbers[i++], 1);
-	write(STDOUT_FILENO, ", ", 2);
-	ft_update_digits(numbers, size, max_number);
-	ft_print_numbers(numbers, size, max_number);
+	write(STDOUT_FILENO, numbers, size);
 }
 
-void	ft_update_digits(char *numbers, int size, char *max_number)
+void	ft_update_digits(char *numbers, int size, const char *max_number)
 {
 	int	digit_to_update;
 
 	digit_to_update = size - 1;
 	while (numbers[digit_to_update] == max_number[digit_to_update])
 		digit_to_update--;
-	numbers[digit_to_update] = numbers[digit_to_update] + 1;
+	numbers[digit_to_update] =(char) (numbers[digit_to_update] + 1);
 	while (++digit_to_update < size)
-		numbers[digit_to_update] = numbers[digit_to_update - 1] + 1;
+		numbers[digit_to_update] = (char)(numbers[digit_to_update - 1] + 1);
 }
-
-// Imperative Version
-// void	ft_print_numbers(char *numbers, int size, char *max_number)
-// {
-// 	int final_position;
-
-// 	final_position = size - 1;
-// 	while (numbers[0] != max_number[0])
-// 	{
-// 		write(STDOUT_FILENO, numbers, size);
-// 		write(STDERR_FILENO, ", ", 2);
-// 		if (numbers[final_position] + 1 <= '9')
-// 			numbers[final_position]++;
-// 		if (numbers[final_position] == max_number[final_position] && size > 1)
-// 		{
-// 			write(STDERR_FILENO, numbers, size);
-// 			write(STDERR_FILENO, ", ", 2);
-// 			ft_update_digits(numbers, size, max_number);
-// 		}
-// 	}
-// 	write(STDOUT_FILENO, numbers, size);
-// }

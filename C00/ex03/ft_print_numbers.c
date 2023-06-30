@@ -12,23 +12,14 @@
 
 #include <unistd.h>
 
-void	ft_putchar(char c);
-void	ft_print_numbers(void);
-
 void	ft_print_numbers(void)
 {
 	int	i;
 
-	i = '1';
+	i = '0'; // '0' here is actually the number 48 in ASCII TABLE.
 	while (i <= '9')
 	{
-		ft_putchar(i);
+		write(STDOUT_FILENO, &i, 1);
 		i++;
 	}
 }
-
-void	ft_putchar(char c)
-{
-	write(STDOUT_FILENO, &c, 1);
-}
-
