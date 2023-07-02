@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex00.h                                             :+:      :+:    :+:   */
+/*   ft_cat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 18:36:27 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/07/01 16:42:25 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/07/02 16:42:50 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/07/02 18:15:53 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX00_H
-# define EX00_H
+#include "../includes/ex01.h"
 
-// Standard Library headers
-# include <fcntl.h>
-# include <sys/stat.h>
-# include <sys/types.h>
-# include <unistd.h>
+void	ft_cat(int fd)
+{
+	char	buffer[BUFFER_SIZE + NULL_BYTE];
+	ssize_t	bytes_read;
 
-// Constants
-# define BUFFER_SIZE 4096
-
-// Function declarations
-void	ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *s);
-
-#endif // EX00_H
+	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	buffer[bytes_read] = '\0';
+	while (bytes_read > 0)
+	{
+		ft_putstr_fd(buffer, STDOUT_FILENO);
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		buffer[bytes_read] = '\0';
+	}
+}

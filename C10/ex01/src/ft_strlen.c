@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex00.h                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 18:36:27 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/07/01 16:42:25 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/06/14 22:35:05 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/07/02 18:02:01 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX00_H
-# define EX00_H
+#include "../includes/ex01.h"
 
-// Standard Library headers
-# include <fcntl.h>
-# include <sys/stat.h>
-# include <sys/types.h>
-# include <unistd.h>
+size_t	ft_strlen(const char *s)
+{
+	char	*s_begin;
 
-// Constants
-# define BUFFER_SIZE 4096
-
-// Function declarations
-void	ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *s);
-
-#endif // EX00_H
+	if (s == NULL)
+		return (0);
+	s_begin = (char *)s;
+	while (*s != '\0')
+		s++;
+	return ((size_t)(s - s_begin));
+}

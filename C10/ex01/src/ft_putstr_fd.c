@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex00.h                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 18:36:27 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/07/01 16:42:25 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/06/20 21:38:48 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/07/02 18:15:56 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX00_H
-# define EX00_H
+#include "../includes/ex01.h"
 
-// Standard Library headers
-# include <fcntl.h>
-# include <sys/stat.h>
-# include <sys/types.h>
-# include <unistd.h>
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	str_len;
 
-// Constants
-# define BUFFER_SIZE 4096
-
-// Function declarations
-void	ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *s);
-
-#endif // EX00_H
+	str_len = ft_strlen(s);
+	write(fd, s, str_len);
+}
