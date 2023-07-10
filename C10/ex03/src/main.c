@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush04.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 10:05:40 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/07/10 00:54:10 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/07/06 15:10:37 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/07/06 15:48:03 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "../includes/ex03.h"
 
-void	rush(int lines, int columns)
+int	main(int argc, char *argv[])
 {
-	int	lines_counter;
-	int	columns_counter;
-
-	lines_counter = 0;
-	while (lines_counter < lines)
-	{
-		columns_counter = 0;
-		while (columns_counter < columns)
-		{
-			ft_putchar('A');
-			columns_counter++;
-		}
-		lines_counter++;
-	}
+	ft_hexdump();
+	return (EXIT_SUCCESS);
 }

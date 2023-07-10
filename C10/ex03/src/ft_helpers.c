@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush04.c                                           :+:      :+:    :+:   */
+/*   ft_helpers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 10:05:40 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/07/10 00:54:10 by gusda-si         ###   ########.fr       */
+/*   Created: 2023/07/02 18:56:09 by gusda-si          #+#    #+#             */
+/*   Updated: 2023/07/06 15:11:09 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "../includes/ex03.h"
 
-void	rush(int lines, int columns)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	lines_counter;
-	int	columns_counter;
+	size_t	str_len;
 
-	lines_counter = 0;
-	while (lines_counter < lines)
-	{
-		columns_counter = 0;
-		while (columns_counter < columns)
-		{
-			ft_putchar('A');
-			columns_counter++;
-		}
-		lines_counter++;
-	}
+	str_len = ft_strlen(s);
+	write(fd, s, str_len);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	char	*s_begin;
+
+	if (s == NULL)
+		return (0);
+	s_begin = (char *)s;
+	while (*s != '\0')
+		s++;
+	return ((size_t)(s - s_begin));
 }
