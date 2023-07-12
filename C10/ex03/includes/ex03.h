@@ -17,6 +17,8 @@
 
 # define BUFFER_SIZE 16
 # define NULL_BYTE 1
+# define HEX_BASE "0123456789abcdef"
+# define HEX_BASE_LEN 16
 
 // Related headers
 //# include "libft.h"
@@ -32,5 +34,5 @@
 void	ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char *s);
 int		ft_hexdump(int fd);
-
+void	ft_putchar(char c);
 #endif // EX03_H

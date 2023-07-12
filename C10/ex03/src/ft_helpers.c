@@ -6,7 +6,7 @@
 /*   By: gusda-si <gusda-si@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 18:56:09 by gusda-si          #+#    #+#             */
-/*   Updated: 2023/07/06 15:11:09 by gusda-si         ###   ########.fr       */
+/*   Updated: 2023/07/12 02:54:47 by gusda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ size_t	ft_strlen(const char *s)
 	while (*s != '\0')
 		s++;
 	return ((size_t)(s - s_begin));
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
